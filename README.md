@@ -13,3 +13,8 @@ To run the project in the local env follow the steps;
 3. Start hitting the requests from Postman or from Terminal
 
 ```
+
+To run the test please use
+```
+npm test
+```
