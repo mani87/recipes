@@ -59,6 +59,7 @@ class RecipeController {
 
             res.status(200).json(recipe);
         } catch (err) {
+            console.log(err);
             return res.status(500).json("Error occured while processing your request");
         }
     }
