@@ -18,8 +18,18 @@ class RecipeController {
     }
 
     listAll(req, res) {
+        const query = req.query;
+        
+        const page = query.page || 1;
+        const offset = query.offset || 0;
+        const limit = 2;
+
         try {
-            return res.status(200).json(RecipeService.getAllRecipes());
+            const response = {
+                page: page,
+                recipes: RecipeService.getAllRecipes(offset, limit),
+            }
+            return res.status(200).json(response);
         } catch (err) {
             return res.status(500).json("Error occured while processing your request");
         }

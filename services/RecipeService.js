@@ -5,8 +5,8 @@ class RecipeService {
         this.counter = 100;
     }
 
-    getAllRecipes() {
-        return this.recipes;
+    getAllRecipes(offset, limit) {
+        return this.recipes.slice(offset, offset+limit);
     }
 
     create(recipe) {
