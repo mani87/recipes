@@ -24,13 +24,19 @@ class RecipeController {
         const offset = query.offset || 0;
         const limit = 2;
 
+        const name = query.name;
+        const filters = {
+            name: name
+        }
+
         try {
             const response = {
                 page: page,
-                recipes: RecipeService.getAllRecipes(offset, limit),
+                recipes: RecipeService.getAllRecipes(offset, limit, filters),
             }
             return res.status(200).json(response);
         } catch (err) {
+            console.log(err);
             return res.status(500).json("Error occured while processing your request");
         }
     }

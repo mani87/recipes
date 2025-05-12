@@ -5,7 +5,13 @@ class RecipeService {
         this.counter = 100;
     }
 
-    getAllRecipes(offset, limit) {
+    getAllRecipes(offset, limit, filters) {
+        const { name } = filters;
+        if (name) {
+            const filtered = this.recipes.filter((r) => r.name.includes(name));
+            return filtered.slice(offset, offset+limit);
+        }
+
         return this.recipes.slice(offset, offset+limit);
     }
 
