@@ -23,6 +23,7 @@ class RecipeService {
     update(id, recipe) {
         const idx = this.recipes.findIndex((r) => r.id == id);
         if (idx == -1) return null;
+        recipe.id = id;
         this.recipes[idx] = recipe;
         return recipe;
     }
