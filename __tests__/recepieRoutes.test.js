@@ -34,4 +34,9 @@ describe('API endpoints tests', () => {
         const resp = await request(app).post('/api/v1/recipes/create').send(recipe);
         expect(resp.statusCode).toEqual(422);
     });
+
+    it('should return not found when updated a recipe with invalid ID', async () => {
+        const res = await request(app).post('/api/v1/recipes/update/101').send({name: "Rabri"});
+        expect(res.statusCode).toEqual(404);
+    });
 });
