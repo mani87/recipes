@@ -31,16 +31,16 @@ class RecipeService {
         if (idx == -1) return null;
 
         const old = this.recipes[idx];
-        if (old.name != recipe.name) {
+        if (recipe.name && old.name != recipe.name) {
             old.name = recipe.name;
         }
-        if (old.instructions != recipe.instructions) {
+        if (recipe.instructions && old.instructions != recipe.instructions) {
             old.instructions = recipe.instructions;
         }
-        if (old.ingredients != recipe.ingredients) {
+        if (recipe.ingredients && old.ingredients != recipe.ingredients) {
             old.ingredients = recipe.ingredients;
         }
-        if (old.prepTime != recipe.prepTime) {
+        if (recipe.prepTime && old.prepTime != recipe.prepTime) {
             old.prepTime = recipe.prepTime;
         }
         this.recipes[idx] = old;

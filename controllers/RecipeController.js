@@ -65,9 +65,6 @@ class RecipeController {
                 return res.status(400).json("Please provide recipe id");
             }
 
-            if (!isValidRecipe(updatedRecipe)) {
-                return res.status(422).json("Invalid recipe, please provide a correct one");
-            }
             const recipe = RecipeService.update(id, updatedRecipe)
             if (!recipe) {
                 return res.status(404).json("No such recipe exists to update");
